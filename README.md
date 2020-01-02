@@ -3,7 +3,7 @@ react 项目
 
 ## 请不要往此分支提交
 
-## ==请不要往此分支提交==
+## ==请提交至dev分支==
 
 git 账号 https://github.com/kuzhuOne/huiAdmin.git
 
