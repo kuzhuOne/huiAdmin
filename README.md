@@ -20,10 +20,16 @@ git 账号 https://github.com/kuzhuOne/huiAdmin.git
 
 ```
 git add .
+
 git  commit -m ""
+
+git  branch -a 查看远程和本地所有分支
+
+git checkout -b 分支名  创建新分支并切换
 
 2. 提交本地分支代码到远程仓库的分支
    git  push origin div
+   
 3. 更新本地代码
    git  pull origin div
 ```
