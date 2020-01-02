@@ -1,6 +1,10 @@
 # huiAdmin
 react 项目
 
+## 请不要往此分支提交
+
+## ==请提交至dev分支==
+
 git 账号 https://github.com/kuzhuOne/huiAdmin.git
 
 ```
@@ -25,7 +29,7 @@ git  commit -m ""
 
 git  branch -a 查看远程和本地所有分支
 
-git checkout -b 分支名  创建新分支并切换
+git checkout (-b) 分支名  创建新分支并切换
 
 2. 提交本地分支代码到远程仓库的分支
    git  push origin div
@@ -33,6 +37,10 @@ git checkout -b 分支名  创建新分支并切换
 3. 更新本地代码
    git  pull origin div
 ```
+
 yuyue   劳志慧
 
 liwenke
+
+冀智
+
