@@ -1,7 +1,11 @@
 # huiAdmin
 react 项目
 
+## git checkout dev
+
 git 账号 https://github.com/kuzhuOne/huiAdmin.git
+
+
 
 ```
 主程 
@@ -21,7 +25,7 @@ git 账号 https://github.com/kuzhuOne/huiAdmin.git
 ```
 git add .
 
-git  commit -m ""
+git  commit -m "曹建荣"
 
 git  branch -a 查看远程和本地所有分支
 
