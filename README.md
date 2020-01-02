@@ -33,4 +33,4 @@ git checkout -b 分支名  创建新分支并切换
 3. 更新本地代码
    git  pull origin div
 ```
-yuyue
+yuyue   劳志慧
