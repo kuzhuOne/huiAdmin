@@ -1,8 +1,8 @@
 # huiAdmin
 react 项目
 
-
-
+项目网站：http://demo.cssmoban.com/cssthemes5/ccps_7_H-ui.admin.page_3.0/index.html#
+项目包：http://www.cssmoban.com/cssthemes/7528.shtml
 git 账号 https://github.com/kuzhuOne/huiAdmin.git
 
 ```
