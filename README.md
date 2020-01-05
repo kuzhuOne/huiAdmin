@@ -1,8 +1,8 @@
 # huiAdmin
 react 项目
 
-
-
+项目网站：http://demo.cssmoban.com/cssthemes5/ccps_7_H-ui.admin.page_3.0/index.html#
+项目包：http://www.cssmoban.com/cssthemes/7528.shtml
 git 账号 https://github.com/kuzhuOne/huiAdmin.git
 
 ```
@@ -30,10 +30,10 @@ git  branch -a 查看远程和本地所有分支
 git checkout (-b) 分支名  创建新分支并切换
 
 2. 提交本地分支代码到远程仓库的分支
-   git  push origin div
+   git  push origin dev
    
 3. 更新本地代码
-   git  pull origin div
+   git  pull origin dev
 ```
 
 yuyue   劳志慧
