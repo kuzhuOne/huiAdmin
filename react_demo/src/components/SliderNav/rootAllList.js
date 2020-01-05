@@ -1,0 +1,29 @@
+export default [
+  {
+    name:"首页",
+    icon:"home",
+    path:"/admin/home",
+    id:"0"
+  },
+  {
+    name:"商品管理",
+    icon:"setting",
+    path:'/admin/setting',
+    id:'1',
+    children:[
+      {
+        name:"商品列表",
+        path:'/admin/goods/list',
+        icon:"home",
+        id:"2-0"
+      },
+      {
+        name:"商品列表",
+        path:'/admin/goods/list',
+        icon:"home",
+        id:"2-1"
+      }
+
+    ]
+  }
+]
