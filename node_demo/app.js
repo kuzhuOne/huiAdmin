@@ -11,6 +11,8 @@ var informationRouter = require('./routes/information');
 var pictureRouter = require('./routes/picture');
 var produceRouter = require('./routes/produce');
 var commentRouter = require('./routes/comment');
+var loginRouter = require('./routes/login');
+var regRouter = require('./routes/reg');
 
 var app = express();
 
@@ -26,10 +28,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
 app.use('/information', informationRouter);
 app.use('/picture', pictureRouter);
 app.use('/produce', produceRouter);
 app.use('/comment', commentRouter);
+
+app.use('/login', loginRouter);
+app.use('/reg', regRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
