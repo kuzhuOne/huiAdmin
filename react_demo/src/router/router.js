@@ -3,6 +3,8 @@ import { HashRouter, NavLink, Switch, Redirect, Route, Link } from 'react-router
 
 
 import login from '../pages/Login/login'
+import information from '../components/information/addInformation'
+
 
 class AppRouter extends Component {
     render() {
@@ -12,6 +14,7 @@ class AppRouter extends Component {
                 <Switch>
                     <Redirect exact from='/' to='/login'></Redirect>
                     <Route path='/login' component={login}></Route>
+                  <Route  path='/information' component={information}></Route>
                 </Switch>
             </HashRouter>
         )
