@@ -12,6 +12,7 @@ var pictureRouter = require('./routes/picture');
 var produceRouter = require('./routes/produce');
 var commentRouter = require('./routes/comment');
 var loginRouter = require('./routes/login');
+var logoutRouter = require('./routes/logout');
 var regRouter = require('./routes/reg');
 
 var app = express();
@@ -35,6 +36,7 @@ app.use('/produce', produceRouter);
 app.use('/comment', commentRouter);
 
 app.use('/login', loginRouter);
+app.use('/logout', logoutRouter);
 app.use('/reg', regRouter);
 
 
