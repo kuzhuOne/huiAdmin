@@ -3,6 +3,7 @@ import { HashRouter, NavLink, Switch, Redirect, Route} from 'react-router-dom'
 
 
 import login from '../pages/Login/login'
+
 import Admin from '../pages/admin/admin'
 import Home from '../pages/admin/home'
 //图片管理,资讯管理
@@ -42,6 +43,11 @@ import Journal from '../pages/systemManage/journal'
 import Setting from '../pages/systemManage/setting'
 import Shield from '../pages/systemManage/shield'
 
+
+
+
+import aa from '../pages/Admin/header'
+import information from '../components/information/addInformation'
 
 
 
