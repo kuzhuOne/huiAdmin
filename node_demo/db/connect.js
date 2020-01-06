@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 // mongoose.connect('mongodb://localhost:27017/1923');
 mongoose.connect('mongodb://10.60.14.248:27017/huiAdmin',{ useNewUrlParser: true,useUnifiedTopology:true });
-// 连接本地数据库
+// 连接冀智数据库
 var db = mongoose.connection;
 // 数据库连接对象
 db.on('error',()=>{
