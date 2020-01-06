@@ -46,7 +46,7 @@ import Shield from '../pages/systemManage/shield'
 
 
 
-import aa from '../pages/Admin/header'
+import aa from '../pages/admin/header'
 import information from '../components/information/addInformation'
 
 
