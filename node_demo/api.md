@@ -13,3 +13,6 @@ password     string        Y          用户密码
 code         number      状态码
 errMsg       string      报错信息
 data         object      info:"注册成功" status:  1 成功  2用户名重复  0 系统错误
+
+# 资讯管理
+http://localhost:3000/information/addInformation?id='pp'&state='pp'&num='pp'&time='pp'&source='pp'&type='pp味道'&title='pp迭代'
