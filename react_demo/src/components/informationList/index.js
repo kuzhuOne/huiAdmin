@@ -1,17 +1,18 @@
-import React,{Component} from "react"
+import React, {Component} from "react"
 import {Table, Icon, Switch, Radio, Form, Divider, Button, Dropdown, Menu, Input} from 'antd';
+
 const menu = (
-  <Menu >
+  <Menu>
     <Menu.Item key="1">
-      <Icon type="user" />
+      <Icon type="user"/>
       全部范围
     </Menu.Item>
     <Menu.Item key="2">
-      <Icon type="user" />
+      <Icon type="user"/>
       2nd menu item
     </Menu.Item>
     <Menu.Item key="3">
-      <Icon type="user" />
+      <Icon type="user"/>
       3rd item
     </Menu.Item>
   </Menu>
@@ -40,11 +41,11 @@ const ffff = [
     render: (text, record) => (
       <span>
         <a>Action 一 {record.name}</a>
-        <Divider type="vertical" />
+        <Divider type="vertical"/>
         <a>Delete</a>
-        <Divider type="vertical" />
+        <Divider type="vertical"/>
         <a className="ant-dropdown-link">
-          More actions <Icon type="down" />
+          More actions <Icon type="down"/>
         </a>
       </span>
     ),
@@ -79,7 +80,7 @@ class App extends React.Component {
     });
   };
   start = () => {
-    this.setState({ loading: true });
+    this.setState({loading: true});
     // ajax request after empty completing
     setTimeout(() => {
       this.setState({
@@ -91,11 +92,11 @@ class App extends React.Component {
 
   onSelectChange = selectedRowKeys => {
     console.log('selectedRowKeys changed: ', selectedRowKeys);
-    this.setState({ selectedRowKeys });
+    this.setState({selectedRowKeys});
   };
 
   render() {
-    let { sortedInfo, filteredInfo } = this.state;
+    let {sortedInfo, filteredInfo} = this.state;
     sortedInfo = sortedInfo || {};
     filteredInfo = filteredInfo || {};
     const columns = [
@@ -103,7 +104,7 @@ class App extends React.Component {
         title: 'Name',
         dataIndex: 'name',
         key: 'name',
-        filters: [{ text: 'Joe', value: 'Joe' }, { text: 'Jim', value: 'Jim' }],
+        filters: [{text: 'Joe', value: 'Joe'}, {text: 'Jim', value: 'Jim'}],
         filteredValue: filteredInfo.name || null,
         onFilter: (value, record) => record.name.includes(value),
         sorter: (a, b) => a.name.length - b.name.length,
@@ -122,7 +123,7 @@ class App extends React.Component {
         title: 'Address',
         dataIndex: 'address',
         key: 'address',
-        filters: [{ text: 'London', value: 'London' }, { text: 'New York', value: 'New York' }],
+        filters: [{text: 'London', value: 'London'}, {text: 'New York', value: 'New York'}],
         filteredValue: filteredInfo.address || null,
         onFilter: (value, record) => record.address.includes(value),
         sorter: (a, b) => a.address.length - b.address.length,
@@ -132,14 +133,21 @@ class App extends React.Component {
     ];
     return (
       <div>
-<div><div>显示<Dropdown overlay={menu}>
-  <Button>
-    全部范围 <Icon type="down" />
-  </Button>
-</Dropdown>条</div>从当前数据中检索:<Input placeholder="default size" style={{ width: 200 }} /></div>
-        <Table columns={columns} dataSource={data} onChange={this.handleChange} />
+        <div style={{display:"flex",justifyContent:"space-between",justifyItems:"center",height:'50px'}}>
+          <div>显示<Dropdown overlay={menu}>
+            <Button>
+              全部范围 <Icon type="down"/>
+            </Button>
+          </Dropdown>条
+          </div>
+          <div>
+            从当前数据中检索:<Input placeholder="default size" style={{width: 200}}/>
+          </div>
+          </div>
+        <Table columns={columns} dataSource={data} onChange={this.handleChange}/>
       </div>
     );
   }
 }
+
 export default App
