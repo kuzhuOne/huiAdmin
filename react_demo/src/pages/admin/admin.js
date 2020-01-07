@@ -28,7 +28,7 @@ class Admin extends Component{
                 <Content
                   style={{
                     background: '#fff',
-                    padding: 24,
+                    padding: 10,
                     margin: 0,
                     minHeight: 280,
                   }}
