@@ -1,13 +1,14 @@
 import React,{Component} from 'react'
-import Adds from "../../components/add"
+import Add from "../../components/add"
+import Search from "../../components/search"
 
 class Information extends Component{
     render(){
-        return(
+        return (
             <div>
                 资讯页面
-                hhh
-                <Adds></Adds>
+               <Search></Search>
+               <Add></Add>
             </div>
         )
     }
