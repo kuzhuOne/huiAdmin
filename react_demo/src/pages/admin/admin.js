@@ -11,14 +11,15 @@ class Admin extends Component{
     render(){
         return(
             <Layout className={styles.admin}>
-              <HeaderNav></HeaderNav>
-              <div className={styles.aa}></div>
+              <HeaderNav></HeaderNav> 
             <Layout>
+             
               <Sider width={200} style={{ background: '#fff' }}>
                 <SliderNav></SliderNav>
               </Sider>
 
               <Layout style={{ padding: '0 24px 24px' }}>
+                <div className={styles.aa}></div>
                 <Breadcrumb style={{ margin: '16px 0' }}>
                   <Breadcrumb.Item>首页</Breadcrumb.Item>
                   <Breadcrumb.Item>资讯管理</Breadcrumb.Item>
