@@ -1,6 +1,7 @@
 import React,{Component,Fragment} from "react"
-import {Form,Input, Tooltip,Icon,Cascader,Select,Row,Col,Checkbox,Button,AutoComplete,} from "antd"
+import {Form,Input, Tooltip,Icon,Cascader,Select,Row,Col,Checkbox,Button,AutoComplete,DatePicker,Upload,Modal} from "antd"
 const { Option } = Select;
+const { TextArea } = Input;
 const AutoCompleteOption = AutoComplete.Option;
 
 const residences = [
@@ -38,10 +39,53 @@ const residences = [
   },
 ];
 
+function getBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+  });
+}
+
 class addInformation extends Component{
   state = {
+    myContent:"文章",
     confirmDirty: false,
     autoCompleteResult: [],
+    previewVisible: false,
+    previewImage: '',
+    fileList: [
+      {
+        uid: '-1',
+        name: 'image.png',
+        status: 'done',
+        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+      },
+      {
+        uid: '-2',
+        name: 'image.png',
+        status: 'done',
+        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+      },
+      {
+        uid: '-3',
+        name: 'image.png',
+        status: 'done',
+        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+      },
+      {
+        uid: '-4',
+        name: 'image.png',
+        status: 'done',
+        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+      },
+      {
+        uid: '-5',
+        name: 'image.png',
+        status: 'error',
+      },
+    ],
   };
 
   handleSubmit = e => {
@@ -84,48 +128,23 @@ class addInformation extends Component{
     }
     this.setState({ autoCompleteResult });
   };
+  handleCancel = () => this.setState({ previewVisible: false });
+
+  handlePreview = async file => {
+    if (!file.url && !file.preview) {
+      file.preview = await getBase64(file.originFileObj);
+    }
+
+    this.setState({
+      previewImage: file.url || file.preview,
+      previewVisible: true,
+    });
+  };
+
+  handleChange = ({ fileList }) => this.setState({ fileList });
 
   render() {
-    const { getFieldDecorator } = this.props.form;
-    const { autoCompleteResult } = this.state;
 
-    const formItemLayout = {
-      labelCol: {
-        xs: { span: 24 },
-        sm: { span: 8 },
-      },
-      wrapperCol: {
-        xs: { span: 24 },
-        sm: { span: 16 },
-      },
-    };
-    const tailFormItemLayout = {
-      wrapperCol: {
-        xs: {
-          span: 24,
-          offset: 0,
-        },
-        sm: {
-          span: 16,
-          offset: 8,
-        },
-      },
-    };
-    const prefixSelector = getFieldDecorator('prefix', {
-      initialValue: '86',
-    })(
-      <Select style={{ width: 70 }}>
-        <Option value="86">+86</Option>
-        <Option value="87">+87</Option>
-      </Select>,
-    );
-
-    const websiteOptions = autoCompleteResult.map(website => (
-      <AutoCompleteOption key={website}>{website}</AutoCompleteOption>
-    ));
-
-  render()
-    {
       const { getFieldDecorator } = this.props.form;
       const { autoCompleteResult } = this.state;
 
@@ -164,63 +183,27 @@ class addInformation extends Component{
         <AutoCompleteOption key={website}>{website}</AutoCompleteOption>
       ));
 
+    const config = {
+      rules: [{ type: 'object', required: true, message: 'Please select time!' }],
+    };
+    const { previewVisible, previewImage, fileList } = this.state;
+    const uploadButton = (
+      <div>
+        <Icon type="plus" />
+        <div className="ant-upload-text">Upload</div>
+      </div>
+    );
       return(
+
       <Form {...formItemLayout} onSubmit={this.handleSubmit}>
-        <Form.Item label="E-mail">
-          {getFieldDecorator('email', {
-            rules: [
-              {
-                type: 'email',
-                message: 'The input is not valid E-mail!',
-              },
-              {
-                required: true,
-                message: 'Please input your E-mail!',
-              },
-            ],
-          })(<Input/>)}
+        <Form.Item label={this.state.myContent+'标题'} {...formItemLayout}>
+          <Input placeholder="input placeholder" />
         </Form.Item>
-        <Form.Item label="Password" hasFeedback>
-          {getFieldDecorator('password', {
-            rules: [
-              {
-                required: true,
-                message: 'Please input your password!',
-              },
-              {
-                validator: this.validateToNextPassword,
-              },
-            ],
-          })(<Input.Password/>)}
+        <Form.Item label="简略标题" {...formItemLayout}>
+          <Input placeholder="input placeholder" />
         </Form.Item>
-        <Form.Item label="Confirm Password" hasFeedback>
-          {getFieldDecorator('confirm', {
-            rules: [
-              {
-                required: true,
-                message: 'Please confirm your password!',
-              },
-              {
-                validator: this.compareToFirstPassword,
-              },
-            ],
-          })(<Input.Password onBlur={this.handleConfirmBlur}/>)}
-        </Form.Item>
-        <Form.Item
-          label={
-            <span>
-              Nickname&nbsp;
-              <Tooltip title="What do you want others to call you?">
-                <Icon type="question-circle-o"/>
-              </Tooltip>
-            </span>
-          }
-        >
-          {getFieldDecorator('nickname', {
-            rules: [{required: true, message: 'Please input your nickname!', whitespace: true}],
-          })(<Input/>)}
-        </Form.Item>
-        <Form.Item label="Habitual Residence">
+
+        <Form.Item label="分类栏目">
           {getFieldDecorator('residence', {
             initialValue: ['zhejiang', 'hangzhou', 'xihu'],
             rules: [
@@ -228,53 +211,101 @@ class addInformation extends Component{
             ],
           })(<Cascader options={residences}/>)}
         </Form.Item>
-        <Form.Item label="Phone Number">
-          {getFieldDecorator('phone', {
-            rules: [{required: true, message: 'Please input your phone number!'}],
-          })(<Input addonBefore={prefixSelector} style={{width: '100%'}}/>)}
-        </Form.Item>
-        <Form.Item label="Website">
-          {getFieldDecorator('website', {
-            rules: [{required: true, message: 'Please input website!'}],
+
+        <Form.Item label={this.state.myContent+"类型"} hasFeedback>
+          {getFieldDecorator('select', {
+            rules: [{ required: true, message: 'Please select your country!' }],
           })(
-            <AutoComplete
-              dataSource={websiteOptions}
-              onChange={this.handleWebsiteChange}
-              placeholder="website"
-            >
-              <Input/>
-            </AutoComplete>,
+            <Select placeholder="Please select a country">
+              <Option value="china">China</Option>
+              <Option value="usa">U.S.A</Option>
+            </Select>,
           )}
         </Form.Item>
-        <Form.Item label="Captcha" extra="We must make sure that your are a human.">
-          <Row gutter={8}>
-            <Col span={12}>
-              {getFieldDecorator('captcha', {
-                rules: [{required: true, message: 'Please input the captcha you got!'}],
-              })(<Input/>)}
-            </Col>
-            <Col span={12}>
-              <Button>Get captcha</Button>
-            </Col>
-          </Row>
+
+          <Form.Item label="排序值" {...formItemLayout}>
+            <Input placeholder="input placeholder" />
+          </Form.Item>
+          <Form.Item label="关键字" {...formItemLayout}>
+            <Input placeholder="input placeholder" />
+          </Form.Item>
+
+        <Form.Item label={this.state.myContent+"摘要"} {...formItemLayout}>
+          <TextArea placeholder="textarea with clear icon" allowClear  />
         </Form.Item>
-        <Form.Item {...tailFormItemLayout}>
-          {getFieldDecorator('agreement', {
+        <Form.Item label={this.state.myContent+"作者"} {...formItemLayout}>
+          <Input placeholder="input placeholder" />
+        </Form.Item>
+        <Form.Item label={this.state.myContent+"来源"} {...formItemLayout}>
+          <Input  placeholder="input placeholder" />
+        </Form.Item>
+
+
+        <Form.Item label="允许评论" >
+          {getFieldDecorator('remember', {
             valuePropName: 'checked',
-          })(
-            <Checkbox>
-              I have read the <a href="">agreement</a>
-            </Checkbox>,
+            initialValue: true,
+          })(<Checkbox></Checkbox>)}
+
+
+        </Form.Item>
+
+
+        <Form.Item label="评论开始日期">
+          {getFieldDecorator('date-time-picker', config)(
+            <DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />,
           )}
         </Form.Item>
+        <Form.Item label="评论结束日期">
+          <DatePicker renderExtraFooter={() => 'extra footer'} showTime />
+        </Form.Item>
+
+        <Form.Item label="Field B" {...formItemLayout}>
+          <Input placeholder="input placeholder" />
+        </Form.Item>
+        <Form.Item label="图片上传" extra="longgggggggggggggggggggggggggggggggggg">
+          {getFieldDecorator('upload', {
+            valuePropName: 'fileList',
+            getValueFromEvent: this.normFile,
+          })(
+            <div className="clearfix">
+              <Upload
+                action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+                listType="picture-card"
+                fileList={fileList}
+                onPreview={this.handlePreview}
+                onChange={this.handleChange}
+              >
+                {fileList.length >= 8 ? null : uploadButton}
+              </Upload>
+              <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
+                <img alt="example" style={{ width: '100%' }} src={previewImage} />
+              </Modal>
+            </div>
+          )}
+
+        </Form.Item>
+
+
         <Form.Item {...tailFormItemLayout}>
-          <Button type="primary" htmlType="submit">
-            Register
+          <Button type="primary" >
+            Primary
+          </Button>
+          <Button >Normal</Button>
+          <Button type="dashed" >
+            Dashed
+          </Button>
+          <Button type="primary" icon="download" >
+            DownloadDownload
           </Button>
         </Form.Item>
+
+
       </Form>
+
       )
     }
-  }
+
 }
-export default addInformation
+export default Form.create()(addInformation) ;
+

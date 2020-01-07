@@ -1,5 +1,5 @@
-import React, {Component} from 'react'
-import { HashRouter, NavLink, Switch, Redirect, Route} from 'react-router-dom'
+import React, { Component, Fragment } from 'react'
+import { HashRouter, NavLink, Switch, Redirect, Route, Link } from 'react-router-dom'
 
 
 import login from '../pages/Login/login'
@@ -24,11 +24,11 @@ import Down from '../pages/member/down'
 import Rank from '../pages/member/rank'
 import Records from '../pages/member/records'
 import Share from '../pages/member/share'
-//管理员管理 
+//管理员管理
 import Admnistrators from '../pages/admistrator/admistrator'
 import Limit from '../pages/admistrator/limit'
 import Role from '../pages/admistrator/role'
-//系统统计 
+//系统统计
 import ThreeColumnChart from '../pages/system/3DColumnChart'
 import ThreePancakeChart from '../pages/system/3DPancakeChart '
 import AreaChart from '../pages/system/areaChart'
@@ -46,8 +46,6 @@ import Shield from '../pages/systemManage/shield'
 
 
 
-import aa from '../pages/admin/header'
-import information from '../components/information/addInformation'
 
 
 
@@ -56,7 +54,6 @@ class AppRouter extends Component {
         return (
             <HashRouter>
                 <NavLink to='/login'></NavLink>
-                <NavLink to="/admin"></NavLink>
                 <Switch>
                     <Redirect exact from='/' to='/login'></Redirect>
                     <Route path='/login' component={login}></Route>
