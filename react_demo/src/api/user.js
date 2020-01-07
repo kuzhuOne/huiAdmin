@@ -12,7 +12,7 @@ export const UserLogin = (us, ps) => {
                 reject(err)
                 console.log(err)
             })
-    })
+    })          
 }
 
 export const UserLogout = async () => {
