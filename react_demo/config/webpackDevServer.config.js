@@ -88,10 +88,10 @@ module.exports = function(proxy, allowedHost) {
     },
     public: allowedHost,
     proxy:{
-      '/daye':{
-        target:'http://localhost:3001',
+      '/hehe':{
+        target:'http://10.60.14.248:3000',
         changeOrigin:true,
-        pathRewrite:{"^/daye":''}
+        pathRewrite:{"^/hehe":''}
       }
     },
     before(app, server) {

@@ -1,14 +1,16 @@
 import axios from '../utils/axios'
-import {} from '../utils/webStorage'
+// import {} from '../utils/webStorage'
 export const UserLogin=(us,ps)=>{
     return new Promise((resolve,reject)=>{
-        let url = 'daye/login/login'
-        axios.get(url,{us,ps})
+        let url = '/hehe/login/login'
+        axios.post(url,{us,ps})
         .then((res)=>{
+            console.log(res)
             resolve(res)
         })
         .catch((err)=>{
             reject(err)
+            console.log(err)
         })
     })
 }
