@@ -46,7 +46,6 @@ import Shield from '../pages/systemManage/shield'
 
 
 
-import information from '../components/information/addInformation'
 
 
 class AppRouter extends Component {
