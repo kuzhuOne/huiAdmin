@@ -31,7 +31,7 @@ const Bread = withRouter((props) => {
 
   return (
     isIndex ? null :
-      <div className="breadcrumb-content">
+      <div className="breadcrumb-content"  style={{ display:"flex", justifyContent:'spaceBetween',padding:'10px 0'}}>
         <Breadcrumb>
           {breadcrumbItems}
         </Breadcrumb>

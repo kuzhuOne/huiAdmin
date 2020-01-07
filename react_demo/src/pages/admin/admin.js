@@ -20,16 +20,16 @@ class Admin extends Component{
               </Sider>
 
               <Layout style={{ padding: '0 24px 24px' }}>
+                <Breadcrumb />
 
-                <Breadcrumb/>
-                <Content
-                  style={{
-                    background: '#fff',
-                    padding: 10,
-                    margin: 0,
-                    minHeight: 280,
-                  }}
-                >
+                  <Content
+                    style={{
+                      background: '#fff',
+                      padding: 10,
+                      margin: 0,
+                      minHeight: 280,
+                    }}
+                  >
                  {this.props.children}
                 </Content>
               </Layout>
