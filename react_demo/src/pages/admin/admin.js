@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import styles from './admin.module.less'
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
-import HeaderNav from '../../components/headerNav/headerNav'
+import HeaderNav from '../admin/header'
 import SliderNav from '../../components/sliderNav/sliderNav'
 
 const { Header, Content, Sider } = Layout;
@@ -11,10 +11,7 @@ class Admin extends Component{
     render(){
         return(
             <Layout className={styles.admin}>
-            <Header className="header">
               <HeaderNav></HeaderNav>
-            </Header>
-            
             <Layout>
               <Sider width={200} style={{ background: '#fff' }}>
                 <SliderNav></SliderNav>

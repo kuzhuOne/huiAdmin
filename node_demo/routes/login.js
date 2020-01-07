@@ -3,12 +3,12 @@ var router = express.Router();
 var jwt =require('../utils/jwt')
 var user = require('../db/model/userModel')
 // 登录
-router.get('/login',(req,res)=>{
-  let {userName,passWord} = req.body 
+router.post('/login',(req,res)=>{
+  let {us,ps} = req.body 
   // let rootList=[]
   let token=null
   let _id=''
-  user.findOne({userName,passWord})
+  user.findOne({us,ps})
   .then((db)=>{
     if(!db) return  res.send({err:-1,msg:'login nook'})
     // rootList=db.rootList
