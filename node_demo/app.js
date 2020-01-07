@@ -13,7 +13,7 @@ var produceRouter = require('./routes/produce');
 var commentRouter = require('./routes/comment');
 var loginRouter = require('./routes/login');
 var regRouter = require('./routes/reg');
-
+var download = require('./routes/download')
 var app = express();
 
 // view engine setup
@@ -37,6 +37,7 @@ app.use('/comment', commentRouter);
 app.use('/login', loginRouter);
 app.use('/reg', regRouter);
 
+app.use('./download',download)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

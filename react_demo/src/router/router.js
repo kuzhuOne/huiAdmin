@@ -4,6 +4,7 @@ import { HashRouter, NavLink, Switch, Redirect, Route, Link } from 'react-router
 
 import login from '../pages/Login/login'
 import information from '../components/information/addInformation'
+import download from '../pages/Download/download'
 
 
 class AppRouter extends Component {
@@ -15,6 +16,7 @@ class AppRouter extends Component {
                     <Redirect exact from='/' to='/login'></Redirect>
                     <Route path='/login' component={login}></Route>
                   <Route  path='/information' component={information}></Route>
+                  <Route  path='/download' component={download}></Route>
                 </Switch>
             </HashRouter>
         )
