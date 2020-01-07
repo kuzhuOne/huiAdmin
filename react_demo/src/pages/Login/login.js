@@ -3,6 +3,10 @@ import { Card, Form, Icon, Input, Button, Checkbox,message } from 'antd'
 import styles from './login.module.less'
 import {setItem} from '../../utils/webStorage'
 import {UserLogin} from '../../api/user'
+
+
+
+
 class Login extends Component {
     login=()=>{
         let {getFieldsValue,getFieldDecorator,validateFields}=this.props.form
@@ -62,14 +66,15 @@ class Login extends Component {
           )}  
         </Form.Item>
             <Form.Item>
-              <Checkbox>Remember me</Checkbox>
-              <a className="login-form-forgot" href="">
-                Forgot password
-              </a>
+              <Checkbox>自动登录</Checkbox><Checkbox>记住密码</Checkbox>
+              <br></br>
               <Button type="primary" onClick={this.login}>
-                Log in
+               登录
               </Button>
-              Or <a href="">register now!</a>
+              <br></br>
+              <Button type="primary">
+               立即注册
+              </Button>
             </Form.Item>
         </Card> 
     </div>
