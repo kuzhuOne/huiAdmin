@@ -12,6 +12,7 @@ class Admin extends Component{
         return(
             <Layout className={styles.admin}>
               <HeaderNav></HeaderNav>
+              <div className={styles.aa}></div>
             <Layout>
               <Sider width={200} style={{ background: '#fff' }}>
                 <SliderNav></SliderNav>
