@@ -15,6 +15,7 @@ axios.interceptors.request.use(function (config) {
 
 // Add a response interceptor
 axios.interceptors.response.use(function (response) {
+<<<<<<< HEAD
   // Do something with response data
   let list=[-996,-997,-998,-999]
   if(list.indexOf(response.data.err)!==-1){
@@ -29,4 +30,13 @@ axios.interceptors.response.use(function (response) {
   // Do something with response error
   return Promise.reject(error);
 });
+=======
+    // Do something with response data
+    return response;
+  }, function (error) {
+    // Do something with response error
+    return Promise.reject(error);
+  });
+
+>>>>>>> yue
   export default axios
