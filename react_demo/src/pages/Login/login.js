@@ -18,6 +18,7 @@ class Login extends Component {
            console.log('then',res)
            setItem('token',res.token)
            setItem('uid',res.uid)
+           console.log("token")
         //    setItem('rootIds',res.rootList)
            message.success('登录成功，1s后跳转首页',1,()=>{
              this.props.history.replace('/admin')
@@ -61,14 +62,15 @@ class Login extends Component {
           )}  
         </Form.Item>
             <Form.Item>
-              <Checkbox>Remember me</Checkbox>
-              <a className="login-form-forgot" href="">
-                Forgot password
-              </a>
+              <Checkbox>自动登录</Checkbox><Checkbox>记住密码</Checkbox>
+              <br></br>
               <Button type="primary" onClick={this.login}>
-                Log in
+               登录
               </Button>
-              Or <a href="">register now!</a>
+              <br></br>
+              <Button type="primary">
+               立即注册
+              </Button>
             </Form.Item>
         </Card> 
     </div>
