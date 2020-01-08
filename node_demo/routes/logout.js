@@ -8,7 +8,7 @@ router.post('/logout',(req,res)=>{
   let token=null
   user.updateMany({_id:uid},{token:''})
   .then(()=>{
-    res.send('退出成功')
+    res.send({err:0,msg:'退出成功'})
   })
 
 })

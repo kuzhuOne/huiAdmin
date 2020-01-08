@@ -22,10 +22,11 @@ axios.interceptors.request.use(function (config) {
 // Add a response interceptor
 axios.interceptors.response.use(function (response) {
   // Do something with response data
-  let list=[-996,-997,-998,-999]
+  console.log(response.data.err)
+  let list=[1,2,3]
   if(list.indexOf(response.data.err)!==-1){
     // token 出问题了
-    // console.log('token 出问题了')
+    
     store.dispatch(ActionCreator.setTokenModal(true))
 
     return Promise.reject(response);
