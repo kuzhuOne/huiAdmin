@@ -3,10 +3,6 @@ import { Card, Form, Icon, Input, Button, Checkbox,message } from 'antd'
 import styles from './login.module.less'
 import {setItem} from '../../utils/webStorage'
 import {UserLogin} from '../../api/user'
-
-
-
-
 class Login extends Component {
     login=()=>{
         let {getFieldsValue,getFieldDecorator,validateFields}=this.props.form
@@ -15,14 +11,13 @@ class Login extends Component {
          //err 前端的字段验证 true 不通过 null 没问题
          if(err) return  message.error('输入有误,请重试!',1)
          //字段验证ok 继续向下
-         let {us,ps,token} =data
-         console.log(data)
-         UserLogin(us,ps,token)
-         .then((res)=>{
+         let {us,ps} =data
+        //  console.log(data)
+         UserLogin(us,ps)
+         .then((res)=>{ 
            console.log('then',res)
            setItem('token',res.token)
            setItem('uid',res.uid)
-           console.log("token")
         //    setItem('rootIds',res.rootList)
            message.success('登录成功，1s后跳转首页',1,()=>{
              this.props.history.replace('/admin')
