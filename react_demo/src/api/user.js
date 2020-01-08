@@ -5,14 +5,18 @@ export const UserLogin = (us, ps) => {
         let url = '/hehe/login/login'
         axios.post(url, { us, ps })
             .then((res) => {
-                console.log(res)
-                resolve(res)
+                if (res.err == 0) {
+                    resolve(res)
+                } else {
+                    reject(res)
+                }
+
             })
             .catch((err) => {
                 reject(err)
                 console.log(err)
             })
-    })                       
+    })
 }
 
 export const UserLogout = async () => {

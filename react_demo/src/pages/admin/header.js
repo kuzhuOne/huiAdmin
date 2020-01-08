@@ -6,24 +6,16 @@ import {clear} from '../../utils/webStorage'
 const menu = (
     <Menu>
       <Menu.Item>
-        <a target="_blank" rel="noopener noreferrer" href="#">
-          咨询
-        </a>
+        <span>咨询</span>  
       </Menu.Item>
       <Menu.Item>
-        <a target="_blank" rel="noopener noreferrer" href="#">
-          产品
-        </a>
+        <span>产品</span>  
       </Menu.Item>
       <Menu.Item>        
-        <a target="_blank" rel="noopener noreferrer" href="#">
-          用户
-        </a>
+         <span>用户</span> 
       </Menu.Item>
       <Menu.Item>
-        <a target="_blank" rel="noopener noreferrer" href="#">
-          图片
-        </a>
+        <span>图片</span>  
       </Menu.Item>
     </Menu>
   );

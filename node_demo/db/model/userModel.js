@@ -1,14 +1,18 @@
 // 创建和用户表相关的数据模型
+const mongoose=require('mongoose');
+const Schema=mongoose.Schema;
 
-const mongoose = require('mongoose')
-let userSchema= mongoose.Schema({
-    us:{ type:String,required:true },
-    ps:{ type:String,required:true },
-    token:{type:String,default:null}
+let  adminSchema = new Schema({
+    userName:      {type:String,required:true},
+    passWord:      {type:String,required:true},
+    rootLevel:      {type:Number,default:0},
+    token: {type:String},
+    rootList: {type:Array,required:true},
+    ctime: { type: Date, default: Date.now }
+
 })
-let  userModel = mongoose.model('users',userSchema)
 
-module.exports = userModel
-
+let adminsModel=mongoose.model('users',adminSchema)
+module.exports= adminsModel
 
 
