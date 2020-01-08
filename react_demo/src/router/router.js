@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from 'react'
-import { HashRouter, NavLink, Switch, Redirect, Route, Link } from 'react-router-dom'
+import React, { Component } from 'react'
+import { HashRouter, NavLink, Switch, Redirect, Route} from 'react-router-dom'
 
 
 import login from '../pages/Login/login'
