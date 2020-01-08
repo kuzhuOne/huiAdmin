@@ -47,8 +47,6 @@ import Shield from '../pages/systemManage/shield'
 
 
 
-
-
 class AppRouter extends Component {
     render() {
         return (
@@ -57,12 +55,12 @@ class AppRouter extends Component {
                 <Switch>
                     <Redirect exact from='/' to='/login'></Redirect>
                     <Route path='/login' component={login}></Route>
-                    <Route path="/admin" render={()=>{
+                    <Route path="/admin" breadcrumbName="admin" render={()=>{
                         return(
                             <Admin>
                                 <Switch>
-                                    <Redirect exact from='/admin' to='/admin/home'></Redirect>
-                                    <Route path='/admin/home' component={Home}></Route>
+                                    <Redirect exact from='/admin' breadcrumbName="admin" to='/admin/home'></Redirect>
+                                    <Route path='/admin/home' breadcrumbName="Home" component={Home}></Route>
                                     {/* 资讯管理 */}
                                     <Route path='/admin/information' component={Information}></Route>
                                     {/* 图片管理 */}

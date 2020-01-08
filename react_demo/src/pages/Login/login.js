@@ -18,6 +18,7 @@ class Login extends Component {
            console.log('then',res)
            setItem('token',res.token)
            setItem('uid',res.uid)
+           console.log("token")
         //    setItem('rootIds',res.rootList)
            message.success('登录成功，1s后跳转首页',1,()=>{
              this.props.history.replace('/admin')
