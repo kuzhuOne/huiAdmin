@@ -87,18 +87,17 @@ module.exports = function(proxy, allowedHost) {
       disableDotRule: true,
     },
     public: allowedHost,
+   
     proxy:{
-<<<<<<< HEAD
       '/daye':{
         target:'http://localhost:3001',
         changeOrigin:true,
         pathRewrite:{"^/daye":''}
-=======
+      },
       '/hehe':{
         target:'http://localhost:3000',
         changeOrigin:true,
         pathRewrite:{"^/hehe":''}
->>>>>>> yue
       }
     },
     before(app, server) {

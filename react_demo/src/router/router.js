@@ -3,7 +3,6 @@ import { HashRouter, NavLink, Switch, Redirect, Route, Link } from 'react-router
 
 
 import login from '../pages/Login/login'
-<<<<<<< HEAD
 
 import Admin from '../pages/admin/admin'
 import Home from '../pages/admin/home'
@@ -48,10 +47,7 @@ import Shield from '../pages/systemManage/shield'
 
 
 
-=======
-import information from '../components/information/addInformation'
 import download from '../pages/Download/download'
->>>>>>> yue
 
 
 class AppRouter extends Component {
@@ -62,7 +58,6 @@ class AppRouter extends Component {
                 <Switch>
                     <Redirect exact from='/' to='/login'></Redirect>
                     <Route path='/login' component={login}></Route>
-<<<<<<< HEAD
                     <Route path="/admin" render={()=>{
                         return(
                             <Admin>
@@ -110,10 +105,7 @@ class AppRouter extends Component {
                             </Admin>
                         )
                     }}></Route>
-=======
-                  <Route  path='/information' component={information}></Route>
                   <Route  path='/download' component={download}></Route>
->>>>>>> yue
                 </Switch>
             </HashRouter>
         )

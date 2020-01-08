@@ -5,8 +5,8 @@ import ActionCreator from  '../store/actionCreator'
 axios.interceptors.request.use(function (config) {
   // Do something before request is sent
   //从缓存获取token 添加
-  config.data.token=getItem('token')
-  console.log(config)
+  // config.data.token=getItem('token')
+  // console.log(config)
   return config;
 }, function (error) {
   // Do something with request error
@@ -15,7 +15,6 @@ axios.interceptors.request.use(function (config) {
 
 // Add a response interceptor
 axios.interceptors.response.use(function (response) {
-<<<<<<< HEAD
   // Do something with response data
   let list=[-996,-997,-998,-999]
   if(list.indexOf(response.data.err)!==-1){
@@ -30,13 +29,4 @@ axios.interceptors.response.use(function (response) {
   // Do something with response error
   return Promise.reject(error);
 });
-=======
-    // Do something with response data
-    return response;
-  }, function (error) {
-    // Do something with response error
-    return Promise.reject(error);
-  });
-
->>>>>>> yue
   export default axios

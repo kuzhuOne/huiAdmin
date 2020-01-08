@@ -28,9 +28,9 @@ async function getByType(foodType,page,pageSize){
 //关键字查询食品信息的方法+分页
 async function getByKw(kw,page,pageSize){
     let regex = new RegExp(kw)//查询关键字的正则
-    let allFoods =await downloadModel.find({$or:[{name:{$regex:regex}},{desc:{$regex:regex}}]})
+    let allFoods =await downloadModel.find({$or:[{username:{$regex:regex}}]})
     let allCount =allFoods.length
-    let foods = await downloadModel.find({$or:[{name:{$regex:regex}},{desc:{$regex:regex}}]}).skip((page-1)*pageSize).limit(pageSize)
+    let foods = await downloadModel.find({$or:[{username:{$regex:regex}}]}).skip((page-1)*pageSize).limit(pageSize)
     return {foods,allCount}   
 }
 //删除
@@ -39,8 +39,8 @@ async function del(foodId){
      return result
 }
 //修改
-async function update(foodId,name,price,img,foodType,desc){
-    let result = await downloadModel.updateOne({_id:foodId},{name,price,img,foodType,desc})
+async function update(foodId,username,ip,time,url){
+    let result = await downloadModel.updateOne({_id:foodId},{username,ip,time,url})
     return result
 }
 

@@ -39,11 +39,12 @@ app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
 app.use('/reg', regRouter);
 
-app.use('./download',download)
+app.use('/download',download)
 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
+  console.log(req,res)
   next(createError(404));
 });
 
