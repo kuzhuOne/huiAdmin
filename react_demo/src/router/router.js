@@ -47,6 +47,9 @@ import Shield from '../pages/systemManage/shield'
 
 
 
+import download from '../pages/Download/download'
+
+
 class AppRouter extends Component {
     render() {
         return (
@@ -102,6 +105,7 @@ class AppRouter extends Component {
                             </Admin>
                         )
                     }}></Route>
+                  <Route  path='/download' component={download}></Route>
                 </Switch>
             </HashRouter>
         )
