@@ -89,7 +89,7 @@ module.exports = function(proxy, allowedHost) {
     public: allowedHost,
     proxy:{
       '/hehe':{
-        target:'http://10.60.14.248:3000',
+        target:'http://localhost:3000',
         changeOrigin:true,
         pathRewrite:{"^/hehe":''}
       }
