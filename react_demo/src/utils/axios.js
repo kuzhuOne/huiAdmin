@@ -1,7 +1,8 @@
 import axios from "axios"
-import {getItem} from './webStorage'
+// import {getItem} from './webStorage'
 import store from  '../store/store'
 import ActionCreator from  '../store/actionCreator'
+<<<<<<< HEAD
 axios.interceptors.request.use(function (config) {
   // Do something before request is sent
   //从缓存获取token 添加
@@ -19,6 +20,20 @@ axios.interceptors.request.use(function (config) {
   return Promise.reject(error);
 });
   
+=======
+// axios.interceptors.request.use(function (config) {
+//   // Do something before request is sent
+//   //从缓存获取token 添加
+//   config.data.token=getItem('token')||''
+//   console.log(config)
+//   return config;
+// }, function (error) {
+//   // Do something with request error
+//   return Promise.reject(error);
+// });
+
+
+>>>>>>> liwenke
 // Add a response interceptor
 axios.interceptors.response.use(function (response) {
   // Do something with response data
