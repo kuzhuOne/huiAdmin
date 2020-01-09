@@ -42,7 +42,8 @@ import Data from '../pages/systemManage/data'
 import Journal from '../pages/systemManage/journal'
 import Setting from '../pages/systemManage/setting'
 import Shield from '../pages/systemManage/shield'
-
+//添加
+import Add from '../components/information/addInformation11'
 
 
 
@@ -61,6 +62,8 @@ class AppRouter extends Component {
                                 <Switch>
                                     <Redirect exact from='/admin' breadcrumbName="admin" to='/admin/home'></Redirect>
                                     <Route path='/admin/home' breadcrumbName="Home" component={Home}></Route>
+                                    <Route path='/admin/add' breadcrumbName="Home" component={Add}></Route>
+
                                     {/* 资讯管理 */}
                                     <Route path='/admin/information' component={Information}></Route>
                                     {/* 图片管理 */}

@@ -2,13 +2,13 @@
 
 const mongoose = require('mongoose')
 let informationSchema= mongoose.Schema({
-    id:{ type:String,required:true },
+    id:{ type:String,required:false },
     title:{ type:String,required:true },
     type:{ type:String,required:true },
-    source:{ type:String,required:true },
-    time:{ type:String,required:true },
-    num:{ type:String,required:true },  //图片的路径  图片的base64数据
-    state:{ type:String,required:true },
+    source:{ type:String,required:false },
+    time:{ type:String,required:false },
+    num:{ type:num,required:false },  //图片的路径  图片的base64数据
+    state:{ type:num,required:false },
    
 })
 let  informationModel = mongoose.model('informations',informationSchema)

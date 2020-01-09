@@ -97,6 +97,11 @@ module.exports = function(proxy, allowedHost) {
         target:'http://localhost:3000',
         changeOrigin:true,
         pathRewrite:{"^/haha":''}
+      },
+      '/information':{
+        target:'http://localhost:3000',
+        changeOrigin:true,
+
       }
     },
     before(app, server) {

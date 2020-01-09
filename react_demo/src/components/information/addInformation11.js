@@ -1,39 +1,28 @@
 import React,{Component,Fragment} from "react"
 import {Form,Input, Tooltip,Icon,Cascader,Select,Row,Col,Checkbox,Button,AutoComplete,DatePicker,Upload,Modal} from "antd"
+import {AddInformation} from "../../api/information"
 const { Option } = Select;
 const { TextArea } = Input;
 const AutoCompleteOption = AutoComplete.Option;
 
 const residences = [
   {
-    value: 'zhejiang',
-    label: 'Zhejiang',
-    children: [
-      {
-        value: 'hangzhou',
-        label: 'Hangzhou',
-        children: [
-          {
-            value: 'xihu',
-            label: 'West Lake',
-          },
-        ],
-      },
-    ],
+    value: 'all',
+    label: '全部栏目',
+
   },
   {
     value: 'jiangsu',
-    label: 'Jiangsu',
+    label: '新闻资讯',
     children: [
       {
         value: 'nanjing',
-        label: 'Nanjing',
-        children: [
-          {
-            value: 'zhonghuamen',
-            label: 'Zhong Hua Men',
-          },
-        ],
+        label: '行业动态',
+
+      },{
+        value: 'nanjffing',
+        label: '行业资讯',
+
       },
     ],
   },
@@ -56,35 +45,7 @@ class addInformation extends Component{
     previewVisible: false,
     previewImage: '',
     fileList: [
-      {
-        uid: '-1',
-        name: 'image.png',
-        status: 'done',
-        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-      },
-      {
-        uid: '-2',
-        name: 'image.png',
-        status: 'done',
-        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-      },
-      {
-        uid: '-3',
-        name: 'image.png',
-        status: 'done',
-        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-      },
-      {
-        uid: '-4',
-        name: 'image.png',
-        status: 'done',
-        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-      },
-      {
-        uid: '-5',
-        name: 'image.png',
-        status: 'error',
-      },
+
     ],
   };
 
@@ -93,6 +54,16 @@ class addInformation extends Component{
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
+        let {author,key,num,remember,resiaaadence,simpleTitle,source,title,type,upload}=values
+        let aa=type[0]
+        AddInformation({title,aa})
+          .then((res)=>{
+            console.log(res)
+            if(res.err==0){
+              alert("添加成功")
+              this.props.history.replace('/admin/information')
+            }
+          })
       }
     });
   };
@@ -119,15 +90,7 @@ class addInformation extends Component{
     callback();
   };
 
-  handleWebsiteChange = value => {
-    let autoCompleteResult;
-    if (!value) {
-      autoCompleteResult = [];
-    } else {
-      autoCompleteResult = ['.com', '.org', '.net'].map(domain => `${value}${domain}`);
-    }
-    this.setState({ autoCompleteResult });
-  };
+
   handleCancel = () => this.setState({ previewVisible: false });
 
   handlePreview = async file => {
@@ -170,18 +133,6 @@ class addInformation extends Component{
           },
         },
       };
-      const prefixSelector = getFieldDecorator('prefix', {
-        initialValue: '86',
-      })(
-        <Select style={{ width: 70 }}>
-          <Option value="86">+86</Option>
-          <Option value="87">+87</Option>
-        </Select>,
-      );
-
-      const websiteOptions = autoCompleteResult.map(website => (
-        <AutoCompleteOption key={website}>{website}</AutoCompleteOption>
-      ));
 
     const config = {
       rules: [{ type: 'object', required: true, message: 'Please select time!' }],
@@ -197,47 +148,62 @@ class addInformation extends Component{
 
       <Form {...formItemLayout} onSubmit={this.handleSubmit}>
         <Form.Item label={this.state.myContent+'标题'} {...formItemLayout}>
-          <Input placeholder="input placeholder" />
+          {getFieldDecorator('title', {
+            rules: [{ required: true, message: 'Please input the captcha you got!' }],
+          })(<Input />)}
+
         </Form.Item>
         <Form.Item label="简略标题" {...formItemLayout}>
-          <Input placeholder="input placeholder" />
+          {getFieldDecorator('simpleTitle', {
+            rules: [{  message: 'Please input the captcha you got!' }],
+          })(<Input />)}
         </Form.Item>
 
         <Form.Item label="分类栏目">
-          {getFieldDecorator('residence', {
-            initialValue: ['zhejiang', 'hangzhou', 'xihu'],
+          {getFieldDecorator('resiaaadence', {
+            initialValue : ['all'],
             rules: [
-              {type: 'array', required: true, message: 'Please select your habitual residence!'},
+              {type: 'array', required: true, },
             ],
-          })(<Cascader options={residences}/>)}
+          })(<Cascader  options={residences}/>)}
         </Form.Item>
 
         <Form.Item label={this.state.myContent+"类型"} hasFeedback>
-          {getFieldDecorator('select', {
+          {getFieldDecorator('type', {
+            initialValue : ['全部类型'],
             rules: [{ required: true, message: 'Please select your country!' }],
           })(
             <Select placeholder="Please select a country">
-              <Option value="china">China</Option>
-              <Option value="usa">U.S.A</Option>
+              <Option value="allType">全部类型</Option>
+              <Option value="help">帮助说明</Option>
+              <Option value="newInformation">新闻资讯</Option>
             </Select>,
           )}
         </Form.Item>
 
           <Form.Item label="排序值" {...formItemLayout}>
-            <Input placeholder="input placeholder" />
+            {getFieldDecorator('num', {
+              rules: [{  }],
+            })(<Input />)}
           </Form.Item>
           <Form.Item label="关键字" {...formItemLayout}>
-            <Input placeholder="input placeholder" />
+            {getFieldDecorator('key', {
+              rules: [{  }],
+            })(<Input />)}
           </Form.Item>
 
         <Form.Item label={this.state.myContent+"摘要"} {...formItemLayout}>
           <TextArea placeholder="textarea with clear icon" allowClear  />
         </Form.Item>
         <Form.Item label={this.state.myContent+"作者"} {...formItemLayout}>
-          <Input placeholder="input placeholder" />
+          {getFieldDecorator('author', {
+            rules: [{  }],
+          })(<Input />)}
         </Form.Item>
         <Form.Item label={this.state.myContent+"来源"} {...formItemLayout}>
-          <Input  placeholder="input placeholder" />
+          {getFieldDecorator('source', {
+            rules: [{  }],
+          })(<Input />)}
         </Form.Item>
 
 
@@ -252,9 +218,7 @@ class addInformation extends Component{
 
 
         <Form.Item label="评论开始日期">
-          {getFieldDecorator('date-time-picker', config)(
-            <DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />,
-          )}
+          <DatePicker renderExtraFooter={() => 'extra footer'} showTime />
         </Form.Item>
         <Form.Item label="评论结束日期">
           <DatePicker renderExtraFooter={() => 'extra footer'} showTime />
@@ -263,9 +227,9 @@ class addInformation extends Component{
         <Form.Item label="Field B" {...formItemLayout}>
           <Input placeholder="input placeholder" />
         </Form.Item>
-        <Form.Item label="图片上传" extra="longgggggggggggggggggggggggggggggggggg">
+        <Form.Item label="图片上传" >
           {getFieldDecorator('upload', {
-            valuePropName: 'fileList',
+            valuePropName: 'filelist',
             getValueFromEvent: this.normFile,
           })(
             <div className="clearfix">
@@ -288,15 +252,15 @@ class addInformation extends Component{
 
 
         <Form.Item {...tailFormItemLayout}>
-          <Button type="primary" >
-            Primary
+          <Button type="primary" htmlType="submit" className="login-form-button" icon="file" >
+            保存并提交审核
           </Button>
-          <Button >Normal</Button>
+
           <Button type="dashed" >
             Dashed
           </Button>
-          <Button type="primary" icon="download" >
-            DownloadDownload
+          <Button type="dashed"  >
+            取消
           </Button>
         </Form.Item>
 
