@@ -6,24 +6,16 @@ import {clear} from '../../utils/webStorage'
 const menu = (
     <Menu>
       <Menu.Item>
-        <a target="_blank" rel="noopener noreferrer" href="#">
-          咨询
-        </a>
+        <span>咨询</span>  
       </Menu.Item>
       <Menu.Item>
-        <a target="_blank" rel="noopener noreferrer" href="#">
-          产品
-        </a>
+        <span>产品</span>  
       </Menu.Item>
       <Menu.Item>        
-        <a target="_blank" rel="noopener noreferrer" href="#">
-          用户
-        </a>
+         <span>用户</span> 
       </Menu.Item>
       <Menu.Item>
-        <a target="_blank" rel="noopener noreferrer" href="#">
-          图片
-        </a>
+        <span>图片</span>  
       </Menu.Item>
     </Menu>
   );
@@ -41,7 +33,14 @@ const menu = (
     });
   };
 class Header extends Component {
+//   componentWillMount() {
+//     let token = localStorage.getItem('token')
+//     setTimeout(() => {
+//      ("/login");
+//   }, 1000)
+// }
   clickMenu=(e)=>{
+   
     let {key}=e 
     console.log(key)
     switch (Number(key)) {
@@ -52,11 +51,16 @@ class Header extends Component {
        // 去不去登录页面随意 
        UserLogout()
        .then((res)=>{
+        //  bug  token验证
+        
          clear() 
+        //  console.log(res)
+        
          openNotificationWithIcon('success','退出成功')
+         
        })
        .catch((err)=>{
-     
+        console.log(err)
          openNotificationWithIcon('error','退出失败请重试')
        })
         break;
@@ -64,7 +68,8 @@ class Header extends Component {
       default:
         break;
     }
-   }  
+   }
+  
   renderMenu(menuData){
     return(
       <Menu onClick={this.clickMenu}>
