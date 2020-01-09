@@ -1,11 +1,11 @@
 import React,{Component} from 'react'
 
-
+import Value from '../../components/pie/value'
 class LineChart extends Component{
     render(){
         return(
             <div>
-                折线图
+                <Value></Value>
             </div>
         )
     }

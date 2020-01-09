@@ -1,7 +1,7 @@
-const jwt  = require('./utils/jwt')
+const jwt  = require('../utils/jwt')
 module.exports= (req,res,next)=>{
   console.log('token',req.headers)
-  if(req.path === '/user/login'){
+  if(req.path === '/login/login'){
     next()
   }else{
     let {token}=req.body 
