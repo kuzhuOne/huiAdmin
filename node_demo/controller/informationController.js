@@ -44,4 +44,5 @@ async function  update(foodId,name,price,img,foodType,desc){
    console.log(result)
    return  result
 }
+
 module.exports={add,get,getByType,getByKw,del,update}
