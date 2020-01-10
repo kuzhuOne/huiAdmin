@@ -63,10 +63,9 @@ class App extends React.Component {
       },
       {
         title: '操作',
-        dataIndex: 'state',
         key:"zzz",
         render:(data)=> {
-          console.log(this,data._id)
+          console.log(data,222222)
           return(
             <Fragment>
               {data==0?<a onClick={this.changeState
@@ -74,7 +73,9 @@ class App extends React.Component {
               }>下架</a >:<a>发布</a>}
 
               <Icon type="edit" />
-              <Icon type="delete" />
+              <Icon type="delete" onClick={()=>{
+                this.delData(data._id)
+              } }/>
 
             </Fragment>
           )
@@ -89,7 +90,9 @@ class App extends React.Component {
       allCount: 50, // 总数据条数
       dataSource: [],
       updataInfo: {},
-      pagination:{}
+      pagination:{onChange: (page)=>{console.log(33333,this)
+          this.getTableData(page)
+      }}
     }
 
   }
@@ -98,6 +101,7 @@ componentDidMount(){
 }
 delData(id){
   //  网络请求
+  console.log(id)
   DelInformation(id).then(()=>{
     // message.success('删除ok',1)
     // this.getTableData()

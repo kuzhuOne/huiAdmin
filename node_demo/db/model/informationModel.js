@@ -7,8 +7,8 @@ let informationSchema= mongoose.Schema({
     type:{ type:String,required:true },
     source:{ type:String,required:false },
     time:{ type:String,required:false },
-    num:{ type:num,required:false },  //图片的路径  图片的base64数据
-    state:{ type:num,required:false },
+    num:{ type:Number,required:false },  //图片的路径  图片的base64数据
+    state:{ type:Number,required:false },
    
 })
 let  informationModel = mongoose.model('informations',informationSchema)
