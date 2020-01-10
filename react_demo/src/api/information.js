@@ -13,9 +13,9 @@ export const GetInformation = async (page,pageSize)=>{
 }
 //根据id删除数据
 // 復zんíゞ这句话 ₴TaV31YzbIr6₴ 然后咑閞【淘宀┡ēAPP】復zんíゞ这句话 ₴TaV31YzbIr6₴ 然后咑閞【淘宀┡ēAPP】
-export const DelInformation = async (foodId)=>{
-  let url='/hehe/v1/admin/food/delFood'
-  let result = await axios.post(url,{foodId})
+export const DelInformation = async (InformationId)=>{
+  let url='/information/delInformation'
+  let result = await axios.get(url,{params:{InformationId}})
   if(result.err==0){
     return result
   }else{
