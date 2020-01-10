@@ -3,7 +3,7 @@ import {getItem} from '../utils/webStorage'
 // 获取商品列表
 
 export const GetInformation = async (page,pageSize)=>{
-  let url='/information/getInformation'
+  let url='/hehe/information/getInformation'
   let result = await axios.get(url,{params:{page,pageSize}})
   if(result.err==0){
     return result
