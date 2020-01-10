@@ -124,10 +124,10 @@ class ButtonSize extends React.Component {
 
         />
 
-          <Input placeholder="default size" style={{ width: 200 }} />
+          <Input placeholder="资讯名称" style={{ width: 200 }} />
 
         <Button  icon="search" style={{backgroundColor:"green",color:"white"}}>
-          Search
+          搜资讯
         </Button>
       </div>
     );

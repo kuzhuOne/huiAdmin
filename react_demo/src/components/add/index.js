@@ -2,6 +2,7 @@ import React, {Component} from "react"
 import Information from '../information/addInformation11'
 import {Button, Radio, Icon} from 'antd';
 import styles from "./index.module.less"
+import {Link,withRouter} from "react-router-dom"
 class ButtonSize extends React.Component {
   state = {
     size: 'large',
@@ -10,7 +11,9 @@ class ButtonSize extends React.Component {
   handleSizeChange = e => {
     this.setState({size: e.target.value});
   };
-
+add=()=>{
+  this.props.history.push("/admin/add")
+}
   render() {
     const {size} = this.state;
     return (
@@ -18,7 +21,7 @@ class ButtonSize extends React.Component {
         <div className={styles.left}>
           <Button type="danger">批量删除</Button>
 
-          <Button type="primary" icon="download">
+          <Button type="primary" icon="download" onClick={this.add}>
             添加资讯
           </Button>
         </div>
@@ -29,4 +32,4 @@ class ButtonSize extends React.Component {
   }
 }
 
-export default ButtonSize
+export default withRouter(ButtonSize)
