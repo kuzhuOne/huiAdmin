@@ -14,6 +14,20 @@ class ButtonSize extends React.Component {
 add=()=>{
   this.props.history.push("/admin/add")
 }
+
+  constructor() {
+    super()
+    this.state={
+      infoCount:""
+    }
+
+  }
+  componentDidMount(){
+
+    this.setState({infoCount:this.props.info})
+    console.log(this.state.infoCount,4444444444)
+  }
+
   render() {
     const {size} = this.state;
     return (
@@ -26,7 +40,7 @@ add=()=>{
           </Button>
         </div>
 
-        <div className={styles.right}>共有数据：33条</div>
+        <div className={styles.right}>共有数据：33{this.state.infoCount}条</div>
       </div>
     );
   }

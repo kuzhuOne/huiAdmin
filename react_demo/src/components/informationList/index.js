@@ -98,6 +98,7 @@ class App extends React.Component {
   }
 componentDidMount(){
   this.getTableData(1)
+  this.props.info(22)
 }
 delData(id){
   //  网络请求
@@ -168,7 +169,7 @@ changeState(state){
           </div>
           </div>
 
-        <Table rowKey={row=>row._id} rowSelection={this.rowSelection} columns={this.columns} pagination={pagination}  dataSource={this.state.dataSource} onChange={this.handleChange}/>
+        <Table rowKey={row=>row._id} rowSelection={this.rowSelection} columns={this.columns} pagination={pagination}  dataSource={this.state.dataSource} scroll={{ x:1000, y: 270 }} onChange={this.handleChange}/>
       </div>
     );
   }
