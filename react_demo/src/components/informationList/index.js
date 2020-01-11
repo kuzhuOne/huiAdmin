@@ -102,9 +102,12 @@ componentDidMount(){
 delData(id){
   //  网络请求
   console.log(id)
-  DelInformation(id).then(()=>{
-    // message.success('删除ok',1)
-    // this.getTableData()
+  DelInformation(id).then((res)=>{
+    // message.success('',1)
+    if(res.err==0){
+      alert("删除ok")
+    }
+    this.getTableData()
   })
 
   // 更新页面数据

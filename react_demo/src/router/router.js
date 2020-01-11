@@ -12,6 +12,7 @@ import Photos from '../pages/photos/photos'
 //产品管理
 import Products from '../pages/products/products'
 import Brand from '../pages/products/brand'
+import AddList from '../components/products/addList'
 import Classification from '../pages/products/classification'
 //评论管理
 import CommentList from '../pages/comment/commentList'
@@ -73,7 +74,13 @@ class AppRouter extends Component {
                                     <Route path='/admin/photos' component={Photos}></Route>
                                     {/* 产品管理 */}
                                     <Route exact path='/admin/products' component={Products}></Route>
-                                    <Route path='/admin/products/brand' component={Brand}></Route>
+                                    <Route path='/admin/products/brand' render={()=>{
+                                        return(
+                                            <Brand>
+                                                <Route exact path='/addList' Component={AddList}></Route>
+                                            </Brand>
+                                        )
+                                    }}></Route>
                                     <Route path='/admin/products/classification' component={Classification}></Route>
                                     {/* 评论管理 */}
                                     <Route path='/admin/comment/commentList' component={CommentList}></Route>

@@ -19,4 +19,13 @@ const mationsController = require('../db/model/mations')
         console.log(result)
         return result
     }
-    module.exports = {del, update,add }
+    // 获取
+    async function get(page,pageSize){
+        // 获取总的食品数据数组
+        let allFoods =await mationsController.find()
+        // 获取视食品数据 总数量
+        let allCount =allFoods.length
+        let foods = await mationsController.find().skip((page-1)*pageSize).limit(pageSize)
+        return  {foods,allCount}
+      }
+    module.exports = {del, update,add ,get}
