@@ -18,7 +18,8 @@ var commentRouter = require('./routes/comment');
 var loginRouter = require('./routes/login');
 var logoutRouter = require('./routes/logout');
 var regRouter = require('./routes/reg');
-var download = require('./routes/download')
+var download = require('./routes/download');
+var memberlist = require('./routes/memberlist')
 var app = express();
 
 // view engine setup
@@ -45,8 +46,8 @@ app.use('/mations', mationsRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
 app.use('/reg', regRouter);
-
-app.use('/download',download)
+app.use('/memberlist',memberlist);
+app.use('/download',download);
 
 
 // catch 404 and forward to error handler

@@ -1,10 +1,10 @@
 import React,{Component} from 'react'
-
+import Download from '../Download/download'
 class Down extends Component{
     render(){
         return(
             <div>
-                下载记录
+                <Download></Download>
             </div>
         )
     }

@@ -1,7 +1,7 @@
 import axios from '../utils/axios'
 // 获取商品列表
-export const GetDownloadList = async (page,pageSize)=>{  
-  let url='/hehe/download/getFoods' 
+export const GetMemberList = async (page,pageSize)=>{  
+  let url='/hehe/memberlist/getFoods' 
   let result = await axios.get(url,{
     params: {  
       page:page,
@@ -16,7 +16,7 @@ export const GetDownloadList = async (page,pageSize)=>{
   }
 }
 export const DelDownloadList = async (foodId)=>{  
-  let url='/hehe/download/delFood' 
+  let url='/hehe/memberlist/delFood' 
   let result = await axios.get(url,{
     params: {  
       foodId:foodId
@@ -30,7 +30,7 @@ export const DelDownloadList = async (foodId)=>{
 }
 
 export const UpdateList = async ({_id,username,ip,time,url})=>{  
-  let Url='/hehe/download/updateFood' 
+  let Url='/hehe/memberlist/updateFood' 
   
   let result = await axios.get(Url,{
     params: {  
@@ -49,7 +49,7 @@ export const UpdateList = async ({_id,username,ip,time,url})=>{
 }
 
 export const GetKeyWord = async (kw,page,pageSize)=>{  
-  let url='/hehe/download/getFoodsByKw' 
+  let url='/hehe/memberlist/getFoodsByKw' 
   let result = await axios.get(url,{
     params: {  
       kw:kw,

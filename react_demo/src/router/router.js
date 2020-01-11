@@ -84,7 +84,7 @@ class AppRouter extends Component {
                                     <Route path='/admin/member/rank' component={Rank}></Route>
                                     <Route path='/admin/member/integral' component={Integral}></Route>
                                     <Route path='/admin/member/records' component={Records}></Route>
-                                    <Route path='/admin/member/down' component={Down}></Route>
+                                    <Route path='/admin/member/down' component={download}></Route>
                                     <Route path='/admin/member/share' component={Share}></Route>
                                     {/* 管理员管理 */}
                                     <Route path='/admin/admnistrators/role' component={Admnistrators}></Route>
