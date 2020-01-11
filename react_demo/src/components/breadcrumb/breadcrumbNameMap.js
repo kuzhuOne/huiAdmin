@@ -1,6 +1,6 @@
 const breadcrumbNameMap = {
   '/login': '全部',
-  '/admin': '精华',
+  '/admin/home': '首页',
   '/admin/information': '首页 > 资讯管理 > 资讯列表',
   '/admin/photos': '首页 > 图片管理 > 图片列表',
   '/admin/products/brand': '首页 > 产品管理 > 品牌管理',
