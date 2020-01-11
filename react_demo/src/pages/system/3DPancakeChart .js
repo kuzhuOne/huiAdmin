@@ -1,11 +1,11 @@
 import React,{Component} from 'react'
 
-
+import  Pies from '../../components/pie/pie'
 class ThreePancakeChart extends Component{
     render(){
         return(
             <div>
-                3D饼状图
+              <Pies></Pies>
             </div>
         )
     }

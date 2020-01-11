@@ -1,11 +1,11 @@
 import React,{Component} from 'react'
 
-
+import Zhu from '../../components/pie/zhu'
 class ThreeColumnChart extends Component{
     render(){
         return(
             <div>
-                3D柱状图
+               <Zhu></Zhu>
             </div>
         )
     }

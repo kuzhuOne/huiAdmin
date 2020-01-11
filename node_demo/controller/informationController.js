@@ -1,6 +1,7 @@
 // 存放和食品 数据操作的相关信息 数据库的操作
 const InformationModel= require('../db/model/informationModel')
-async function  add(id,title,type,source,time,num,state){
+
+async function  add(id=0,title,type,source='0',time=new Date(),num=0,state=0){
   // async 函数内部只要不出错 肯定走的是then 如果出错走的是catch
    let result =await InformationModel.insertMany({id,title,type,source,time,num,state})
    console.log(result)
@@ -43,4 +44,5 @@ async function  update(foodId,name,price,img,foodType,desc){
    console.log(result)
    return  result
 }
+
 module.exports={add,get,getByType,getByKw,del,update}

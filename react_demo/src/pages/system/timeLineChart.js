@@ -1,11 +1,11 @@
 import React,{Component} from 'react'
 
-
+import Inside from '../../components/pie/inside'
 class TimeLineChart extends Component{
     render(){
         return(
             <div>
-                时间轴折线图
+                <Inside></Inside>
             </div>
         )
     }

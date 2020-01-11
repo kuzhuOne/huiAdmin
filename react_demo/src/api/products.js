@@ -13,6 +13,18 @@ export const getData=(page,pageSize)=>{
         })
     })
 }
+export const getMation=()=>{
+    let url='/hehe/produce/getProducts'
+    return new Promise((resolve,reject)=>{
+        axios.get(url)
+        .then((res)=>{
+            resolve(res)
+        })
+        .catch((err)=>{
+            reject(err)
+        })
+    })
+}
 
 
 //删除数据

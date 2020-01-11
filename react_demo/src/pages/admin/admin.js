@@ -12,6 +12,13 @@ const { Header, Content, Sider } = Layout;
 
 
 class Admin extends Component{
+  componentDidMount(){
+    let token = localStorage.getItem('token')
+    console.log(token)
+    if(token=null){
+      this.props.history.replace('/login')
+    }
+  }
     render(){
       let {tokenModal,setTokenModal} =this.props
         return(
@@ -39,7 +46,7 @@ class Admin extends Component{
                 </Layout>
               </Layout>
             </Layout>
-            <Modal
+            {/* <Modal
             title='提示'
             visible={tokenModal}
             onOk={()=>{ 
@@ -51,11 +58,9 @@ class Admin extends Component{
             }}
             >
               请重新登录
-            </Modal>
+            </Modal> */}
           </Fragment>
         )
     }
 }
-export default connect(state=>state,(dispatch)=>{
-  return bindActionCreators(ActionCreator,dispatch)
-})(withRouter(Admin))
+export default connect(state=>state)(Admin)

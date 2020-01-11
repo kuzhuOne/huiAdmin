@@ -1,11 +1,10 @@
 import React,{Component} from 'react'
-
-
+import Zhu from '../../components/pie/zhu'
 class ColumnChart extends Component{
     render(){
         return(
             <div>
-               柱状图
+               <Zhu></Zhu>
             </div>
         )
     }

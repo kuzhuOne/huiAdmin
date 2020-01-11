@@ -1,11 +1,11 @@
 import React,{Component} from 'react'
 
-
+import Time from '../../components/pie/time'
 class AreaChart extends Component{
     render(){
         return(
             <div>
-                区域图
+               <Time></Time>
             </div>
         )
     }

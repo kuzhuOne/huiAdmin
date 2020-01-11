@@ -7,7 +7,7 @@ router.get('/reg', function(req, res, next) {
   // res.send('zhuce');
   let {us,ps}= req.query
   console.log(us,ps)
-  user.add(us,ps)
+  user.insertMany({us,ps})
   .then((data)=>{
     console.log(data)
   })

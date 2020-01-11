@@ -11,6 +11,7 @@ var bodyParser = require('body-parser')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var informationRouter = require('./routes/information');
+var mationsRouter = require('./routes/mations');
 var pictureRouter = require('./routes/picture');
 var produceRouter = require('./routes/produce');
 var commentRouter = require('./routes/comment');
@@ -40,7 +41,7 @@ app.use('/information', informationRouter);
 app.use('/picture', pictureRouter);
 app.use('/produce', produceRouter);
 app.use('/comment', commentRouter);
-
+app.use('/mations', mationsRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
 app.use('/reg', regRouter);
