@@ -23,12 +23,7 @@ export const UserLogout = async () => {
     let url = '/hehe/logout/logout'
     let uid = getItem('uid') || ''
     let result = await axios.post(url, { uid })
-<<<<<<< HEAD
-    //  console.log(result)
-    if (result.err == 0) {
-=======
     if (result.err === 0) {
->>>>>>> a333ca6705246e555b228c8cf5a7cc1b786fe063
         return result
     } else {
         throw result
